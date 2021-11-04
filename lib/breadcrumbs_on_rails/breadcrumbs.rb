@@ -33,7 +33,7 @@ module BreadcrumbsOnRails
       # Renders Elements and returns the Breadcrumb navigation for the view.
       #
       # @abstract You must implement this method in your custom Builder.
-      # 
+      #
       # @return [String] the result of the breadcrumb rendering
       def render
         raise NotImplementedError
@@ -85,7 +85,7 @@ module BreadcrumbsOnRails
         if element.path == nil
           content = compute_name(element)
         else
-          content = @context.link_to_unless_current(compute_name(element), compute_path(element), element.options)
+          content = @context.link_to(compute_name(element), compute_path(element), element.options)
         end
         if @options[:tag]
           @context.content_tag(@options[:tag], content)
